@@ -25,6 +25,7 @@ except IOError:
 #
 #  main():
 #
+from gevent import monkey; monkey.patch_all()
 import bottle
 
 if __name__ == '__main__':
