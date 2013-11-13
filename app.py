@@ -31,7 +31,7 @@ import bottle
 if __name__ == '__main__':
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
-   imp.load_source('yolanda', 'wsgi/yolanda.py')
+   imp.load_source('yolanda', 'web/yolanda.py')
    #app = imp.load_source('application', 'wsgi/application')
 
    bottle.run(host=ip, port=port, server='gevent')
