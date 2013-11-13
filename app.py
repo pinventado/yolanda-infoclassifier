@@ -25,13 +25,17 @@ except IOError:
 #
 #  main():
 #
+import bottle
+
 if __name__ == '__main__':
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
    app = imp.load_source('application', 'wsgi/application')
 
-   #fwtype="wsgiref"
-   fwtype="gevent"
+   bottle.run(app=app, host=ip, port=port, server='gevent')
+
+'''
+   fwtype="wsgiref"
    for fw in ("gevent", "cherrypy", "flask"):
       try:
          imp.find_module(fw)
@@ -59,3 +63,4 @@ if __name__ == '__main__':
    else:
       from wsgiref.simple_server import make_server
       make_server(ip, port, app.application).serve_forever()
+'''
