@@ -31,9 +31,9 @@ if __name__ == '__main__':
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
    imp.load_source('yolanda', 'wsgi/yolanda.py')
-   app = imp.load_source('application', 'wsgi/application')
+   #app = imp.load_source('application', 'wsgi/application')
 
-   bottle.run(app=app, host=ip, port=port, server='gevent')
+   bottle.run(host=ip, port=port, server='gevent')
 
 '''
    fwtype="wsgiref"

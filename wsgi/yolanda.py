@@ -14,4 +14,4 @@ from bottle import TEMPLATE_PATH
 TEMPLATE_PATH.append(os.path.join(os.environ['OPENSHIFT_HOMEDIR'], 
     'runtime/repo/wsgi/views/')) 
 
-application=default_app()
+#application=default_app()
