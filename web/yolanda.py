@@ -7,8 +7,8 @@ def nameindex(name='Stranger'):
 @route('/')
 def index():
     #return '<strong>Hello World!</strong>'
-	#return str(os.path.dirname(os.path.realpath(__file__)))
-	return static_file('index.html',root=os.path.join(os.path.dirname(__file__), 'static'))
+	return str(os.path.dirname(os.path.realpath(__file__)))+"  "+str(os.environ['OPENSHIFT_HOMEDIR'])
+	#return static_file('index.html',root=os.path.join(os.path.dirname(__file__), 'static'))
 
 # This must be added in order to do correct path lookups for the views
 import os
