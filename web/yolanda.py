@@ -8,7 +8,8 @@ import gevent
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
 
-def show_tweet(tweet, body):
+def show_tweet(tweet, args):
+	body = args[0]
 	body.put(tweet)
         body.put(StopIteration)
 
