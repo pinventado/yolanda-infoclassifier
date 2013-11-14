@@ -3,6 +3,13 @@ from bottle import route, static_file
 @route('/name/<name>')
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
+
+@route('/get-tweet'):
+def get_tweet():
+    yield ' ' * 1200
+    yield '<html><body><h1>Hi '
+    gevent.sleep(10)
+    yield 'There</h1></body></html>'
  
 @route('/')
 def index():
