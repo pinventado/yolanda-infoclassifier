@@ -1,6 +1,6 @@
 from TwitterAPI import TwitterAPI
 #import redis
-import utils
+import os, utils
 #uncomment when working locally; provide settings.py file
 #import settings 
 
