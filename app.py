@@ -34,9 +34,9 @@ if __name__ == '__main__':
    imp.load_source('yolanda', 'web/yolanda.py')
    imp.load_source('utils','bg/utils.py')
    imp.load_source('twitter_listener','bg/twitter_listener.py')
+   yolanda.twitter_listener = twitter
    bottle.run(host=ip, port=port, server='gevent')
    twitter = twitter_listener.TwitterListener()
-   yolanda.twitter_listener = twitter
    twitter.start()
 
 '''

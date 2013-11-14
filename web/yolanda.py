@@ -2,8 +2,7 @@ from bottle import route, static_file
 from gevent import queue
 import gevent
 
-#value overridden by app.py
-twitter_listener=None
+#twitter_listener - contains link to twitter assigned by app.py
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
