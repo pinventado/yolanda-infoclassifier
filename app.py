@@ -31,9 +31,9 @@ import bottle
 if __name__ == '__main__':
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
-   imp.load_source('yolanda', 'web/yolanda.py')
+   yolanda = imp.load_source('yolanda', 'web/yolanda.py')
    imp.load_source('utils','bg/utils.py')
-   imp.load_source('twitter_listener','bg/twitter_listener.py')
+   twitter_listener = imp.load_source('twitter_listener','bg/twitter_listener.py')
    twitter = twitter_listener.TwitterListener()
    twitter.start()
    yolanda.twitter_listener = twitter
