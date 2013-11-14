@@ -5,7 +5,7 @@ import gevent
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
 
-@route('/get-tweet'):
+@route('/get-tweet')
 def get_tweet():
     yield ' ' * 1200
     yield '<html><body><h1>Hi '
