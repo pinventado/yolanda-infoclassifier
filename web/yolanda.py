@@ -1,6 +1,6 @@
 from bottle import route, static_file
 from gevent import queue
-import gevent
+import gevent, json
 
 #twitter_listener - contains link to twitter assigned by app.py
 
@@ -10,7 +10,7 @@ def nameindex(name='Stranger'):
 
 def show_tweet(tweet, args):
 	body = args[0]
-	body.put(tweet)
+	body.put(json.dumps(tweet))
         body.put(StopIteration)
 
 def wait_tweet(body):
