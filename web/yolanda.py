@@ -1,4 +1,4 @@
-from bottle import route, static_file
+from bottle import route, static_file, default_app
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
@@ -6,8 +6,8 @@ def nameindex(name='Stranger'):
  
 @route('/')
 def index():
-    #return '<strong>Hello World!</strong>'
-	return static_file('index.html','static')
+    return '<strong>Hello World!</strong>'
+	#return static_file('index.html','static')
 
 # This must be added in order to do correct path lookups for the views
 import os
