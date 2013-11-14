@@ -32,8 +32,11 @@ if __name__ == '__main__':
    ip   = os.environ['OPENSHIFT_PYTHON_IP']
    port = int(os.environ['OPENSHIFT_PYTHON_PORT'])
    imp.load_source('yolanda', 'web/yolanda.py')
-
+   imp.load_source('twitter_listener','bg/twitter_listener.py')
    bottle.run(host=ip, port=port, server='gevent')
+   twitter = twitter_listener.TwitterListener()
+   yolanda.twitter_listener = twitter
+   twitter.start()
 
 '''
    fwtype="wsgiref"

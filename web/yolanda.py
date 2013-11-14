@@ -1,6 +1,8 @@
 from bottle import route, static_file
 import gevent
 
+twitter_listener=None
+
 @route('/name/<name>')
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
