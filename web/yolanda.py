@@ -1,19 +1,26 @@
 from bottle import route, static_file
+from gevent import queue
 import gevent
 
+#value overridden by app.py
 twitter_listener=None
 
 @route('/name/<name>')
 def nameindex(name='Stranger'):
     return '<strong>Hello, %s!</strong>' % name
 
+def show_tweet(tweet, body):
+	body.put(tweet)
+        body.put(StopIteration)
+
+def wait_tweet(body):
+	twitter_listener.register(show_tweet, body)
+
 @route('/get-tweet')
 def get_tweet():
-    yield ' ' * 1200
-    yield '<html><body><h1>Hi '
-    gevent.sleep(10)
-    yield 'There</h1></body></html>'
-
+    body = queue.Queue()
+    gevent.spawn(wait_tweet, body)
+    return body
  
 @route('/')
 def index():
