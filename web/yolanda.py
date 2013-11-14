@@ -10,6 +10,7 @@ def get_tweet():
     yield '<html><body><h1>Hi '
     gevent.sleep(10)
     yield 'There</h1></body></html>'
+
  
 @route('/')
 def index():
