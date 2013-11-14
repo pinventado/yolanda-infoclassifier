@@ -1,30 +1,11 @@
-Bottle on OpenShift
-===================
+Yolanda Info Classifier
+=======================
+Social media has made it easier to relay information regarding the Haiyan/Yolanda rescue effort. Although this has been very helpful, there is now so much information with very varied content that it has become difficult to sift through. The goal of this project is to use a mix of crowdsourcing and machine learning to categorize information.
 
-This git repository helps you get up and running quickly w/ a Bottle installation
-on the Red Hat OpenShift PaaS.
+Contributors will manually categorize information using a web interface so that users can then view messages according to their categories. In the background, a machine learner will use the manually labeled categories so it can automate the categorization of other information. This is necessary especially because of the volume of information produced.
 
+The API for retrieving information categories will be made available so that other projects can leverage on them.
 
-Running on OpenShift
-----------------------------
-
-Create an account at http://openshift.redhat.com/
-
-Create a python-2.6 application
-
-    rhc app create -a bottle -t python-2.6
-
-Add this upstream bottle repo
-
-    cd bottle
-    git remote add upstream -m master git://github.com/openshift/bottle-openshift-quickstart.git
-    git pull -s recursive -X theirs upstream master
-    
-Then push the repo upstream
-
-    git push
-
-That's it, you can now checkout your application at:
-
-    http://bottle-$yournamespace.rhcloud.com
-
+Requirements
+------------
+1. TwitterAPI - https://github.com/geduldig/TwitterAPI
