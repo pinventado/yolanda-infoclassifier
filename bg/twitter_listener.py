@@ -7,7 +7,7 @@ import os, utils
 #comment when working locally
 ###Server code###
 import imp
-imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
+settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
 ###End of server code###
 
 class TwitterListener:
