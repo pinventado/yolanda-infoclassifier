@@ -6,8 +6,8 @@ def nameindex(name='Stranger'):
  
 @route('/')
 def index():
-    return '<strong>Hello World!</strong>'
-	#return static_file('index.html','static')
+    #return '<strong>Hello World!</strong>'
+	return static_file('index.html',root='static')
 
 # This must be added in order to do correct path lookups for the views
 import os
