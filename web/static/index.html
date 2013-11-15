@@ -4,8 +4,17 @@
 	</body>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
    <script>
-      $.get('/get-tweet',function(data){
-         $('#message').html(data)
-      });
+      var msgCount = 0;
+      var MAX_MSG = 5;
+      function get_tweet(){
+         $.get('/get-tweet',function(data){
+            $('#message').html(data)
+            msgCount++;
+         }).done(function(){
+            if(msgCount < MAX_MSG)
+               getTweet();
+         });   
+      }
+      get_tweet()
    </script>
 </html>
