@@ -1,1 +1,11 @@
-Test
+<html>
+	<body>
+      <div id="message"></div>
+	</body>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+   <script>
+      $.get('/get-tweet',function(data){
+         $('#message').html(data)
+      });
+   </script>
+</html>
