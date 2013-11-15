@@ -18,11 +18,12 @@ def get_tweet():
     gevent.spawn(wait_tweet, body)
     return body
  
-@route('/'):
+@route('/')
+def index():
 	return static_file('index.html',root=os.path.join(os.path.dirname(__file__), 'static'))
 
 @route('/<path:path>')
-def index():
+def path():
 	return static_file(path ,root=os.path.join(os.path.dirname(__file__), 'static'))
 
 # This must be added in order to do correct path lookups for the views
