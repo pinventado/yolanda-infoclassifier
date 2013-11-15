@@ -4,10 +4,6 @@ import gevent, json
 
 #twitter_listener - contains link to twitter assigned by app.py
 
-@route('/name/<name>')
-def nameindex(name='Stranger'):
-    return '<strong>Hello, %s!</strong>' % name
-
 def show_tweet(tweet, args):
 	body = args[0]
 	body.put(json.dumps(tweet))
@@ -22,9 +18,12 @@ def get_tweet():
     gevent.spawn(wait_tweet, body)
     return body
  
-@route('/')
-def index():
+@route('/'):
 	return static_file('index.html',root=os.path.join(os.path.dirname(__file__), 'static'))
+
+@route('/<path:path>')
+def index():
+	return static_file(path ,root=os.path.join(os.path.dirname(__file__), 'static'))
 
 # This must be added in order to do correct path lookups for the views
 import os
