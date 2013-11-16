@@ -26,7 +26,7 @@ except IOError:
 #  main():
 #
 from gevent import monkey; monkey.patch_all()
-import bottle, zlib
+import bottle, zlib, pymongo
 
 def mongo_store(tweet):
    tbl.insert(zlib.compress(tweet))
