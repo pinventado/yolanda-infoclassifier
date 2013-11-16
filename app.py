@@ -26,11 +26,11 @@ except IOError:
 #  main():
 #
 from gevent import monkey; monkey.patch_all()
-from bson.binary import binary
+from bson.binary import Binary
 import bottle, zlib, pymongo, json, base64
  
 def mongo_store(tweet, args):
-   tbl.insert({'data':binary.Binary(base64.b64encode(zlib.compress(json.dumps(tweet))))})
+   tbl.insert({'data':Binary(base64.b64encode(zlib.compress(json.dumps(tweet))))})
 
 
 if __name__ == '__main__':
