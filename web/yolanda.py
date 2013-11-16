@@ -9,7 +9,7 @@ settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settin
 twitter_listener.register(mongo_store)
 
 def mongo_store(tweet):
-   conn = pymongo.MongoClient('mongodbo://'+settings.MONGO_USER+':'settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
+   conn = pymongo.MongoClient('mongodbo://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
    tbl = conn['yolanda']['tweet']
    tbl.insert(zlib.compress(tweet))
 
