@@ -4,7 +4,7 @@ import gevent, json, pymongo, zlib
 
 #twitter_listener - contains link to twitter assigned by app.py
 
-import imp
+import imp, os
 settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
 twitter_listener.register(mongo_store)
 
