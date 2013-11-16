@@ -15,7 +15,7 @@ class TwitterListener:
 		self.listeners = []
 		self.twitter = TwitterAPI(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
 
-	def register(self, listener, *args=None):
+	def register(self, listener):
 		self.listeners.append((listener,args))
 
 	def run(self):
