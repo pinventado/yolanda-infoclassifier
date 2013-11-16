@@ -26,7 +26,7 @@ except IOError:
 #  main():
 #
 from gevent import monkey; monkey.patch_all()
-from pymongo import binary
+from bson.binary import binary
 import bottle, zlib, pymongo, json, base64
  
 def mongo_store(tweet, args):
