@@ -26,7 +26,10 @@ except IOError:
 #  main():
 #
 from gevent import monkey; monkey.patch_all()
-import bottle
+import bottle, zlib
+
+def mongo_store(tweet):
+   tbl.insert(zlib.compress(tweet))
 
 
 if __name__ == '__main__':
@@ -36,8 +39,14 @@ if __name__ == '__main__':
    imp.load_source('utils','bg/utils.py')
    twitter_listener = imp.load_source('twitter_listener','bg/twitter_listener.py')
    twitter = twitter_listener.TwitterListener()
-   twitter.start()
    yolanda.twitter_listener = twitter
+
+   settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
+   conn = pymongo.MongoClient('mongodbo://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
+   tbl = conn['yolanda']['tweet']
+   twitter_listener.register(mongo_store)
+
+   twitter.start()
    bottle.run(host=ip, port=port, server='gevent')
 
 '''
