@@ -29,7 +29,7 @@ from gevent import monkey; monkey.patch_all()
 import bottle, zlib, pymongo, json
 
 def mongo_store(tweet, args):
-   tbl.insert(zlib.compress(json.dumps(tweet)))
+   tbl.insert({'data':zlib.compress(json.dumps(tweet))})
 
 
 if __name__ == '__main__':
