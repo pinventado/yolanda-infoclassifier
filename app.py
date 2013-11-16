@@ -26,10 +26,10 @@ except IOError:
 #  main():
 #
 from gevent import monkey; monkey.patch_all()
-import bottle, zlib, pymongo, json
+import bottle, zlib, pymongo, json, base64
 
 def mongo_store(tweet, args):
-   tbl.insert({'data':zlib.compress(json.dumps(tweet))})
+   tbl.insert({'data':base64.b64encode(zlib.compress(json.dumps(tweet)))})
 
 
 if __name__ == '__main__':
