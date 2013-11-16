@@ -28,8 +28,8 @@ except IOError:
 from gevent import monkey; monkey.patch_all()
 import bottle, zlib, pymongo
 
-#def mongo_store(tweet, args):
-   #tbl.insert(zlib.compress(tweet))
+def mongo_store(tweet, args):
+   tbl.insert(zlib.compress(tweet))
 
 
 if __name__ == '__main__':
@@ -41,10 +41,10 @@ if __name__ == '__main__':
    twitter = twitter_listener.TwitterListener()
    yolanda.twitter_listener = twitter
 
-   #settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
-   #conn = pymongo.MongoClient('mongodb://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
-   #tbl = conn['yolanda']['tweet']
-   #twitter.register(mongo_store)
+   settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
+   conn = pymongo.MongoClient('mongodb://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
+   tbl = conn['yolanda']['tweet']
+   twitter.register(mongo_store)
 
    twitter.start()
    bottle.run(host=ip, port=port, server='gevent')
