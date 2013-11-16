@@ -28,7 +28,7 @@ except IOError:
 from gevent import monkey; monkey.patch_all()
 from pymongo import binary
 import bottle, zlib, pymongo, json, base64
-
+ 
 def mongo_store(tweet, args):
    tbl.insert({'data':binary.Binary(base64.b64encode(zlib.compress(json.dumps(tweet))))})
 
