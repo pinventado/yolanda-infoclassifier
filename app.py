@@ -42,7 +42,7 @@ if __name__ == '__main__':
    yolanda.twitter_listener = twitter
 
    settings = imp.load_source('settings', os.environ['OPENSHIFT_DATA_DIR']+'/settings.py')
-   conn = pymongo.MongoClient('mongodbo://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
+   conn = pymongo.MongoClient('mongodb://'+settings.MONGO_USER+':'+settings.MONGO_PWD+'@widmore.mongohq.com:10000/yolanda')
    tbl = conn['yolanda']['tweet']
    twitter_listener.register(mongo_store)
 
