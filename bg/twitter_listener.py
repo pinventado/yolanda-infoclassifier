@@ -15,7 +15,7 @@ class TwitterListener:
 		self.listeners = []
 		self.twitter = TwitterAPI(settings.CONSUMER_KEY, settings.CONSUMER_SECRET, settings.ACCESS_TOKEN, settings.ACCESS_TOKEN_SECRET)
 
-	def register(self, listener, args):
+	def register(self, listener, *args):
 		self.listeners.append((listener,args))
 
 	def run(self):
@@ -28,13 +28,13 @@ class TwitterListener:
 		thread = threading.Thread(target = self.run)
                 thread.start()
 
-def test(tweet):
+def test(tweet,args):
 	print "::"+str(tweet)
 
 
 if __name__ == "__main__":
 	t = TwitterListener()
-	t.register(a)
+	t.register(test)
 	t.start()
 	#redis_con=redis.StrictRedis(settings.REDIS_HOST,settings.REDIS_PORT, password=settings.REDIS_PASSWORD)
 
