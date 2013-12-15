@@ -1,0 +1,12 @@
+CONSUMER_KEY='qxYE7E1RFRyxN98zHIPpw'
+CONSUMER_SECRET='QVBYb1khOGD4k0aKhrat5FVA5OPjte8KqrJYIEl8gk'
+ACCESS_TOKEN='69192939-IJI7CSEn33papDLoepA1B0mUCHrYD25nMjouGFigi'
+ACCESS_TOKEN_SECRET='AMpfoJvkYZsOUq5BkjrhvQStAznq57dQ8Z9VonHqh0j3C'
+
+TOPICS='#rescueph, #haiyan, #yolandaph'
+        
+REDIS_HOST='pub-redis-19855.us-west-1.1.azure.garantiadata.com'
+REDIS_PORT=19855
+REDIS_USERNAME='yolanda'
+REDIS_PASSWORD='haiyan'
+REDIS_CHANNEL='tweets'
