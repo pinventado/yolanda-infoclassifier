@@ -1,3 +1,5 @@
+model/*
 *.pyc
 *.pyo
 *~
+settings.py
