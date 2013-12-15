@@ -1,7 +1,7 @@
 from gevent import monkey; monkey.patch_all()
 from TwitterAPI import TwitterAPI
 from classifier import ReliefClassifier
-import settings, utils, json, redis, random, gevent, sys, traceback
+import settings, json, redis, random, gevent, sys, traceback
 
 class TwitterListener:
 	def __init__(self, redis_con, classifier):
