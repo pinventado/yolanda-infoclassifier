@@ -1,0 +1,16 @@
+#Twitter credentials
+CONSUMER_KEY=''
+CONSUMER_SECRET=''
+ACCESS_TOKEN=''
+ACCESS_TOKEN_SECRET=''
+
+TOPICS='#rescueph, #haiyan, #yolandaph, #reliefph, #floodph, yolanda, haiyan'
+        
+#Redis server settings (for pub/sub)
+REDIS_HOST=''
+REDIS_PORT=0
+REDIS_USERNAME=''
+REDIS_PASSWORD=''
+REDIS_CLASSIFIED_CHANNEL='classified_tweets'
+REDIS_FILTERED_CHANNEL='filtered_tweets'
+REDIS_TRAIN_CHANNEL='training_tweets'
