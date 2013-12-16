@@ -9,3 +9,5 @@ The API for retrieving information categories will be made available so that oth
 Requirements
 ------------
 1. TwitterAPI - https://github.com/geduldig/TwitterAPI
+2. redis-py - https://github.com/andymccurdy/redis-py
+3. Scikit Learn - http://scikit-learn.org/
