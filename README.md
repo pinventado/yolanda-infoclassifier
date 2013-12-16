@@ -4,10 +4,12 @@ Social media has made it easier to relay information regarding the Haiyan/Yoland
 
 Contributors will manually categorize information using a web interface so that users can then view messages according to their categories. In the background, a machine learner will use the manually labeled categories so it can automate the categorization of other information. This is necessary especially because of the volume of information produced.
 
-The API for retrieving information categories will be made available so that other projects can leverage on them.
+An initial version of the project can be accessed here: http://yolanda-oshakathon.rhcloud.com/
+The APIs for retrieving information categories are made available so that other projects can leverage on them. Information regarding the APIs can be found here: http://yolanda-oshakathon.rhcloud.com/api.html
 
 Requirements
 ------------
-1. TwitterAPI - https://github.com/geduldig/TwitterAPI
-2. redis-py - https://github.com/andymccurdy/redis-py
-3. Scikit Learn - http://scikit-learn.org/
+1. Gevent - http://www.gevent.org/
+2. TwitterAPI - https://github.com/geduldig/TwitterAPI
+3. redis-py - https://github.com/andymccurdy/redis-py
+4. Scikit Learn - http://scikit-learn.org/
